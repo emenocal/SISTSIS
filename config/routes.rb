@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'pais/new'
+
+  post 'pais/create' =>'pais#create'
+
   get 'docente/new'
 
   post 'docente/create' =>'docente#create'

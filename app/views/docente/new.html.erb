@@ -1,7 +1,7 @@
 <%=javascript_include_tag "docente"%>
 <br>
 
-<%=form_for(:persona,:url=>{:action=>:create}) do |f|%>
+<%=form_for(:persona,remote: true,:url=>{:action=>:create}) do |f|%>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">

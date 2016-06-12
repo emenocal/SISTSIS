@@ -238,24 +238,4 @@ ActiveRecord::Schema.define(version: 20160601194132) do
   add_index "usuarios", ["Persona_id"], name: "index_usuarios_on_Persona_id", using: :btree
   add_index "usuarios", ["Rol_id"], name: "index_usuarios_on_Rol_id", using: :btree
 
-  add_foreign_key "departamentos", "countries", column: "Country_id"
-  add_foreign_key "docente_estudios", "docentes", column: "Docente_id"
-  add_foreign_key "docentes", "personas", column: "Persona_id"
-  add_foreign_key "estudiante_estudios", "estudiantes", column: "Estudiante_id"
-  add_foreign_key "estudiante_trabajos", "estudiantes", column: "Estudiante_id"
-  add_foreign_key "estudiantes", "personas", column: "Persona_id"
-  add_foreign_key "matriculas", "estudiantes", column: "Estudiante_id"
-  add_foreign_key "municipios", "departamentos", column: "Departamento_id"
-  add_foreign_key "nacionalidads", "countries", column: "Country_id"
-  add_foreign_key "nacionalidads", "personas", column: "Persona_id"
-  add_foreign_key "opcions", "modulos", column: "Modulo_id"
-  add_foreign_key "padres", "estudiantes", column: "Estudiante_id"
-  add_foreign_key "padres", "personas", column: "Persona_id"
-  add_foreign_key "personas", "municipios", column: "Municipio_id"
-  add_foreign_key "regimen_asignaturas", "asignaturas", column: "Asignatura_id"
-  add_foreign_key "regimen_asignaturas", "regimes", column: "Regime_id"
-  add_foreign_key "usuario_opcions", "opcions", column: "Opcion_id"
-  add_foreign_key "usuario_opcions", "usuarios", column: "Usuario_id"
-  add_foreign_key "usuarios", "personas", column: "Persona_id"
-  add_foreign_key "usuarios", "rols", column: "Rol_id"
 end

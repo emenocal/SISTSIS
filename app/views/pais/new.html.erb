@@ -1,0 +1,62 @@
+
+	<br>
+<%= form_for(:pais,:url => {:action => :create}) do |p| %>
+
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	  <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingOne">
+	      <div class="panel-title">
+	        <i role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Registro de Pais</i>
+	      </div>
+	    </div>
+	   <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+	      <div class="panel-body">
+
+	    <br>
+	     <div class="row">
+	     <div class="col-md-8">
+	     <p class="stylep">Nombre del pais</p>
+          <%= p.text_field(:Pais, id:"nomb_pais", class:"form-control")%>	      
+	     </div>	
+         <div class="col-md-4">
+	      
+	     </div>
+	     </div>
+	     <br>
+	     <div class="row">
+	     	
+          <div class="col-md-12">
+          <p class="stylep">Descripcion</p>
+          <%= p.text_area(:Descripcion, id:"desc_pais", class:"form-control") %>
+          </div>
+
+	     </div>
+	     <br>
+	     <div class="row">
+	     	<div class="col-md-9">
+	     	</div>
+			<div class="col-md-3">
+	     		<div class="row">
+	     		
+	     		
+
+	     		<div class="col-md-5">
+	     			
+               <%= p.submit :Cancelar, class:"btn btn-danger"%> 
+	     		</div>
+	     		<div class="col-md-5">
+	     		<%= p.submit :Guardar, value:"Guardar", class:"btn btn-primary"%>
+	     			
+	     		</div>
+
+	     		<div class="col-md-2">
+	     		</div>
+	     		</div>
+	     	</div>
+	     </div>
+	        
+	      </div>
+	    </div>
+	  </div> 
+	  </div> 
+<%end%>
