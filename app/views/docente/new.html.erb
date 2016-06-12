@@ -2,42 +2,53 @@
 <br>
 
 <%=form_for(:persona,:url=>{:action=>:create}) do |f|%>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			Datos del Docente
-		</div>
-		<div class="panel-body">
-		<div class="row">
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+     <div class="row">
+        <div class="col-md-11">
+       <b>Datos del Docente</b>
+       </div>
+       <div class="col-md-1">
+       	<i class="fa fa-eye" aria-hidden="true"role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></i>
+       </div>
+      </div>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        
+       <div class="row">
 	
 			<div class="col-md-10">
 
 				<br>
 				<div class="row">
 					<div class="col-md-4">
-					<label style=" width: 150px;">Nº de cedula</label>
+					<p style="width: 150px;" class="stylep">Nº de cedula</p>
 					<%=f.text_field(:Cedula,id:"NumCedula",class:"form-control")%>
 					</div>
 					<div class="col-md-4">
-					<label style=" width: 150px;">Primer Nombre</label>
+					<p style=" width: 150px;" class="stylep">Primer Nombre</p>
 					<%=f.text_field(:Primernombre,id:"Primernombre",class:"form-control")%>
 					</div>
 					<div class="col-md-4">
-					<label style=" width: 150px;">Segundo Nombre</label>
+					<p style=" width: 150px;" class="stylep">Segundo Nombre</p>
 					<%=f.text_field(:Segundornombre,id:"Segundornombre",class:"form-control")%>
 					</div>
 				</div>
 			<br>
 				<div class="row">
 					<div class="col-md-4">
-					<label style=" width: 150px;">Primer Apellido</label>
+					<p style=" width: 150px;" class="stylep">Primer Apellido</p>
 					<%=f.text_field(:Primerapellido,id:"Primerapellido",class:"form-control")%>
 					</div>
 					<div class="col-md-4">
-					<label style=" width: 150px;">Segundo Apellido</label>
+					<p style="width: 150px;" class="stylep">Segundo Apellido</p>
 					<%=f.text_field(:Segundoapellido,id:"Segundoapellido",class:"form-control")%>
 					</div>
 					<div class="col-md-4">
-					<label style=" width: 150px;">Edad</label>
+					<p style=" width: 150px;" class="stylep">Edad</p>
 					<%=f.text_field(:Edad,id:"Edad",class:"form-control")%>
 					</div>
 				</div>
@@ -62,13 +73,13 @@
 		<div class="row">
 			
 			 <div class="col-md-10">
-			 <label style=" width: 150px;">Direccion</label>
+			 <p style=" width: 150px;" class="stylep">Direccion</p>
 			 <%=f.text_area(:Direccion,class:"form-control")%>
 			 </div>
 
 			 <div class="col-md-2">
 
-				 <label style=" width: 150px;">Genero</label>
+				 <p style=" width: 150px;" class="stylep">Genero</p>
 				 <%=radio_button_tag(:Genero, "Masculino") %> Masculino
 				 <br>
 				 <%=radio_button_tag(:Genero, "Femenino") %> Femenino
@@ -80,21 +91,21 @@
 		<div class="row">
 			 
 			 <div class="col-md-3">
-				 <label style=" width: 150px;">Tipo Sanguineo</label>
+				 <p style=" width: 150px;" class="stylep">Tipo Sanguineo</p>
 				 <%=f.select(:Tiposanguineo,['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'], {include_blank: 'Seleccione'}, { :class => 'form-control' })%>
 				  
 			 </div>
 			 <div class="col-md-3">
-				 <label style=" width: 150px;">Estado Civil</label>
+				 <p style=" width: 150px;" class="stylep">Estado Civil</p>
 				<%=f.select(:Estadocivil,['Solter@', 'Casad@', 'Divorciad@', 'Viud@', 'Union de hechos'], {include_blank: 'Seleccione'}, { :class => 'form-control' })%>
 				 
 			 </div>
 			 <div class="col-md-3">
-				 <label style=" width: 150px;">Celular</label>
+				 <p style=" width: 150px;" class="stylep">Celular</p>
 				 <%= f.text_field(:Celular, id: "Celular",class: "form-control")%>
 			 </div>
 			 <div class="col-md-3">
-				 <label style=" width: 150px;">Telefono</label>
+				 <p style=" width: 150px;" class="stylep">Telefono</p>
 				 <%= f.text_field(:Telefono,id:"Telefono", class:"form-control")%>
 			 </div>
 			 			 
@@ -103,41 +114,54 @@
 		<div class="row">
 			
 			 <div class="col-md-3">
-			 <label style="width: 150px;">Pais</label>
+			 <p style="width: 150px;" class="stylep">Pais</p>
 			 <%=collection_select(:Pais, :id,Country.all,:id, :Pais,{},{:class=>"form-control"})%>
 			 </div>
 			 <div class="col-md-3">
-			  <label style="width: 150px;">Departamento</label>
+			  <p style="width: 150px;" class="stylep">Departamento</p>
 			  <%=collection_select(:Departamento, :id, Departamento.all,:id, :Departamento,{},{:class=>"form-control"})%>
 			 </div>
 			 <div class="col-md-3">
-		<label style=" width: 150px;">Municipio</label>
+		<p style=" width: 150px;" class="stylep">Municipio</p>
 			  <%=collection_select(:Municipio, :id, Municipio.all,:id, :Municipio,{},{:class=>"form-control"})%>
 			 </div>
 			
 		</div>
-<br>
+		<br>
 		</div>
 	
 	</div>
-
-
+  </div>
+</div>
 
 <%= f.fields_for :estudio do |e|%>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-		Estudios realizados
-		</div>
-		<div class="panel-body">
+	
+<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <div class="panel-title">
+        <div class="row">
+        <div class="col-md-11">
+       <b >Estudios Realizados</b>
+       </div>
+       <div class="col-md-1">
+       	<i class="fa fa-eye" aria-hidden="true"role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></i>
+       </div>
+      </div>
+      </div>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <br>
 			<div class="row">
 			  
 			  <div class="col-md-3">
-					<label style=" width: 150px;">Estudio:</label>
+					<p style=" width: 150px;" class="stylep">Estudio:</p>
 					<%= e.text_field(:Estudio,id:"Estudio_doncente",class:"form-control") %>
 			  </div>
 			  <div class="col-md-3">
 			    
-					<label style=" width: 150px;">Año:</label>
+					<p style=" width: 150px;" class="stylep">Año:</p>
 				 <div class="input-group">
 					<%= e.text_field(:Ano,id:"Ano_estudio_doc",class:"form-control")%>
 					
@@ -145,10 +169,11 @@
   				
 				</div>
 			  </div>
+
 		<br>	
 		<div class="col-md-6">
 		<div class="panel panel-default">
-		<div class=" panel-heading colapse"><b>Estudios Agregados</b></div>
+		<div class=" panel-heading"><b>Estudios Agregados</b></div>
 		
        <!-- <ul class="list-group">
   			
@@ -182,6 +207,10 @@
 	
 	</div>
 </div>
+   
+  </div> 
+  </div> 
+<%end%>
 <div class=" panel panel-default">
   <br>
 	<div class="row">
@@ -199,6 +228,23 @@
 			 
 	</div>
 <br>
-</div> 
-<%end%>
+</div>
+
+<!--
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <i role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Esudio</i>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        
+      </div>
+    </div>
+  </div> 
+  </div> 
+  -->
+
 <%end%>

@@ -77,6 +77,12 @@ height: 9em;
 	z-index: 20px;
     border-color: #337ab7;
 }
+.panel-primary2 > .panel-heading2 {
+    color: #fff;
+	background-image: url('/assets/fondo.gif');
+	z-index: 20px;
+    border-color: #337ab7;
+}
 
 .Log2
 {
@@ -97,9 +103,18 @@ footer
     font-weight: bold;
     border-color: #ddd;
 }
-.panel-heading {
-    padding: 25px 15px;
+.panel-default > .panel-heading2 {
+    color: #000;
+    font-weight: bold;
+    border-color: #ddd;
 }
+.panel-heading {
+    padding: 10px 16px;
+}
+
+
+
+
 .stylep {
 	color: #428bca;
 	width: 150px;
