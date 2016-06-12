@@ -1,0 +1,204 @@
+<%=javascript_include_tag "docente"%>
+<br>
+
+<%=form_for(:persona,:url=>{:action=>:create}) do |f|%>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Datos del Docente
+		</div>
+		<div class="panel-body">
+		<div class="row">
+	
+			<div class="col-md-10">
+
+				<br>
+				<div class="row">
+					<div class="col-md-4">
+					<label style=" width: 150px;">Nº de cedula</label>
+					<%=f.text_field(:Cedula,id:"NumCedula",class:"form-control")%>
+					</div>
+					<div class="col-md-4">
+					<label style=" width: 150px;">Primer Nombre</label>
+					<%=f.text_field(:Primernombre,id:"Primernombre",class:"form-control")%>
+					</div>
+					<div class="col-md-4">
+					<label style=" width: 150px;">Segundo Nombre</label>
+					<%=f.text_field(:Segundornombre,id:"Segundornombre",class:"form-control")%>
+					</div>
+				</div>
+			<br>
+				<div class="row">
+					<div class="col-md-4">
+					<label style=" width: 150px;">Primer Apellido</label>
+					<%=f.text_field(:Primerapellido,id:"Primerapellido",class:"form-control")%>
+					</div>
+					<div class="col-md-4">
+					<label style=" width: 150px;">Segundo Apellido</label>
+					<%=f.text_field(:Segundoapellido,id:"Segundoapellido",class:"form-control")%>
+					</div>
+					<div class="col-md-4">
+					<label style=" width: 150px;">Edad</label>
+					<%=f.text_field(:Edad,id:"Edad",class:"form-control")%>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="col-md-2">
+				<%= image_tag "adefault_user.png", :alt => "User",:class=>"PictureDefault", :title => "User"%>
+				<br>
+				<div class="fileupload fileupload-new" data-provides="fileupload">
+                         <span class="btn btn-default btn-group-justified btn-sm btn-file">
+                           <span class="fileupload-new"> Photo</span>
+                           <span class="fileupload-exists"> Change</span>
+                           <%=f.file_field(:Foto,id:"img", class:"form-control") %>
+                         </span>
+                         <!--<span class="fileupload-preview margin-left"></span>
+                         <a id="FileNameSelect"  href="#" class="close fileupload-exists"  data-dismiss="fileupload" style="float: none"> x</a>-->
+                </div>
+			</div>
+			
+		</div>
+		<br>
+		<div class="row">
+			
+			 <div class="col-md-10">
+			 <label style=" width: 150px;">Direccion</label>
+			 <%=f.text_area(:Direccion,class:"form-control")%>
+			 </div>
+
+			 <div class="col-md-2">
+
+				 <label style=" width: 150px;">Genero</label>
+				 <%=radio_button_tag(:Genero, "Masculino") %> Masculino
+				 <br>
+				 <%=radio_button_tag(:Genero, "Femenino") %> Femenino
+				 
+			 </div>
+			
+		</div>
+		<br>
+		<div class="row">
+			 
+			 <div class="col-md-3">
+				 <label style=" width: 150px;">Tipo Sanguineo</label>
+				 <%=f.select(:Tiposanguineo,['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'], {include_blank: 'Seleccione'}, { :class => 'form-control' })%>
+				  
+			 </div>
+			 <div class="col-md-3">
+				 <label style=" width: 150px;">Estado Civil</label>
+				<%=f.select(:Estadocivil,['Solter@', 'Casad@', 'Divorciad@', 'Viud@', 'Union de hechos'], {include_blank: 'Seleccione'}, { :class => 'form-control' })%>
+				 
+			 </div>
+			 <div class="col-md-3">
+				 <label style=" width: 150px;">Celular</label>
+				 <%= f.text_field(:Celular, id: "Celular",class: "form-control")%>
+			 </div>
+			 <div class="col-md-3">
+				 <label style=" width: 150px;">Telefono</label>
+				 <%= f.text_field(:Telefono,id:"Telefono", class:"form-control")%>
+			 </div>
+			 			 
+		</div>
+		<br>
+		<div class="row">
+			
+			 <div class="col-md-3">
+			 <label style="width: 150px;">Pais</label>
+			 <%=collection_select(:Pais, :id,Country.all,:id, :Pais,{},{:class=>"form-control"})%>
+			 </div>
+			 <div class="col-md-3">
+			  <label style="width: 150px;">Departamento</label>
+			  <%=collection_select(:Departamento, :id, Departamento.all,:id, :Departamento,{},{:class=>"form-control"})%>
+			 </div>
+			 <div class="col-md-3">
+		<label style=" width: 150px;">Municipio</label>
+			  <%=collection_select(:Municipio, :id, Municipio.all,:id, :Municipio,{},{:class=>"form-control"})%>
+			 </div>
+			
+		</div>
+<br>
+		</div>
+	
+	</div>
+
+
+
+<%= f.fields_for :estudio do |e|%>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		Estudios realizados
+		</div>
+		<div class="panel-body">
+			<div class="row">
+			  
+			  <div class="col-md-3">
+					<label style=" width: 150px;">Estudio:</label>
+					<%= e.text_field(:Estudio,id:"Estudio_doncente",class:"form-control") %>
+			  </div>
+			  <div class="col-md-3">
+			    
+					<label style=" width: 150px;">Año:</label>
+				 <div class="input-group">
+					<%= e.text_field(:Ano,id:"Ano_estudio_doc",class:"form-control")%>
+					
+				<span class="input-group-addon" id="basic-addon1"> <i id="add_estudio" class="fa fa-plus-circle cursor_hand" aria-hidden="true"></i></span>
+  				
+				</div>
+			  </div>
+		<br>	
+		<div class="col-md-6">
+		<div class="panel panel-default">
+		<div class=" panel-heading colapse"><b>Estudios Agregados</b></div>
+		
+       <!-- <ul class="list-group">
+  			
+ 			<li class="list-group-item">estudio</li>
+ 		
+		</ul>-->
+		  <!-- Table -->
+		  <table class="table" id="tabla_estudio" >
+		   <!-- <thead>
+		    	<tr>
+		    		<th>Estudio</th>
+		    		<th>Año</th>
+		    	</tr>
+		    </thead>-->
+		    <tbody>
+		    	
+              <tr>
+              	
+              </tr>
+
+		    </tbody>		    	
+		  </table>
+		</div>
+			
+		</div>
+
+		
+
+		</div>
+		<br>
+	
+	</div>
+</div>
+<div class=" panel panel-default">
+  <br>
+	<div class="row">
+			 
+			 <div class="col-md-9">
+
+			 </div>
+			 
+			  <div class="col-md-3">
+			
+			<%= f.submit("Cancelar", :class=>"btn btn-danger")%>
+			<%= f.submit("Guardar", :class=>"btn btn-primary")%>
+
+			 </div>
+			 
+	</div>
+<br>
+</div> 
+<%end%>
+<%end%>

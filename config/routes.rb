@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'docente/new'
+
+  post 'docente/create' =>'docente#create'
+
   get 'usuario/index'
 
   # rutas Estudante
