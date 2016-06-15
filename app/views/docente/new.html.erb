@@ -1,7 +1,7 @@
 <%=javascript_include_tag "docente"%>
 <br>
 
-<%=form_for(:persona,remote: true,:url=>{:action=>:create}) do |f|%>
+<%=form_for(:persona,:url=>{:action=>:create}) do |f|%>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -34,7 +34,7 @@
 					</div>
 					<div class="col-md-4">
 					<p style=" width: 150px;" class="stylep">Segundo Nombre</p>
-					<%=f.text_field(:Segundornombre,id:"Segundornombre",class:"form-control")%>
+					<%=f.text_field(:Segundonombre,id:"Segundornombre",class:"form-control")%>
 					</div>
 				</div>
 			<br>
@@ -175,19 +175,9 @@
 		<div class="panel panel-default">
 		<div class=" panel-heading"><b>Estudios Agregados</b></div>
 		
-       <!-- <ul class="list-group">
-  			
- 			<li class="list-group-item">estudio</li>
- 		
-		</ul>-->
-		  <!-- Table -->
+       
 		  <table class="table" id="tabla_estudio" >
-		   <!-- <thead>
-		    	<tr>
-		    		<th>Estudio</th>
-		    		<th>Año</th>
-		    	</tr>
-		    </thead>-->
+		   
 		    <tbody>
 		    	
               <tr>
