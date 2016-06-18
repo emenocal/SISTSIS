@@ -2,16 +2,19 @@ class DocenteController < ApplicationController
   
   def new
  
-   @persona=Persona.new
+  @persona=Persona.new
+  @docente=Docente.new
+ # @persona.build_docente
+  @docente_estudio=DocenteEstudio.new
   
-
   end
 
   def create
 
   @persona=Persona.new
   @docente=Docente.new
-  @docente_estudio=Docente_estudio.new
+  @docente_estudio=DocenteEstudio.new
+
 
   @persona.Primernombre=param[:Primernombre]
   @persona.Segundonombre=param[:Segundonombre]
@@ -26,21 +29,40 @@ class DocenteController < ApplicationController
   @persona.Celular=param[:Celular]
   @persona.Telefono=param[:Telefono]
   @persona.Genero=param[:Genero]
-  @persona.Estadocivil=param[:Estadocivil]
-  @persona.Municipio_id=param[:municipios_attributes]['0'][:id]
+  @persona.Estado=1
 
-  @docente.persona=@persona
+
+
+  @persona.Municipio_id=params[:Municipio][:id]
+
+ 
+
   
-  @docente_estudio.docente=@docente
-  @docente_estudio.Estudio=param[:docente_estudios_attributes]['0'][:Estudio]
-  @docente_estudio.Ano=param[:docente_estudios_attributes]['0'][:Ano]
+  
+  #@docente_estudio.docentes=@docente
+  #@docente_estudio.Estudio=param[:docenteestudios_attributes]['0'][:Estudio]
+  #@docente_estudio.Ano=param[:docenteestudios_attributes]['0'][:Ano]
 
   puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   puts "Primernombre: "+@persona.Primernombre.to_s
+  puts "Segundonombre"+@persona.Segundonombre.to_s
+  puts "Primerapellido"+@persona.Primerapellido.to_s
+  puts "Segundoapellido"+@persona.Segundoapellido.to_s
+  puts "Edad"+@persona.Edad.to_s
+  puts "Tiposanguineo"+@persona.Tiposanguineo.to_s
+  puts "Foto"+@persona.Foto.to_s
+  puts "Cedula"+@persona.Cedula.to_s
+  puts "Direccion"+@persona.Direccion.to_s
+  puts "Estadocivil"+@persona.Estadocivil.to_s
+  puts "Celular"+@persona.Celular.to_s
+  puts "Telefono"+@persona.Telefono.to_s
+  puts "Genero"+@persona.Genero.to_s
+  puts "Municipio"+@persona.Municipio_id.to_s
   
+  @persona.save
 
-  #@persona.save
-  #@docente.save
+  @docente.persona=@persona
+  @docente.save
   #@docente_estudio.save
 
   end
@@ -50,7 +72,7 @@ class DocenteController < ApplicationController
 
     params.require(:persona).permit(:Primernombre,:Segundonombre,:Primerapellido,
     :Segundoapellido,:Edad,:Tiposanguineo,:Foto,:Cedula,:Direccion,:Estadocivil,:Celular,:Telefono,:Genero,
-    :Estadocivil,:municipios_attributes => [:id],:docente_estudios_attributes =>[:Estudio,:Ano])
+    :Estadocivil)
 
   end
 

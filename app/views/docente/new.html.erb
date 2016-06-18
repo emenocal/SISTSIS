@@ -1,7 +1,7 @@
 <%=javascript_include_tag "docente"%>
 <br>
 
-<%=form_for(:persona,:url=>{:action=>:create}) do |f|%>
+<%=form_for(@persona,:url=>{:action=>:create}) do |f|%>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -102,11 +102,11 @@
 			 </div>
 			 <div class="col-md-3">
 				 <p style=" width: 150px;" class="stylep">Celular</p>
-				 <%= f.text_field(:Celular, id: "Celular",class: "form-control")%>
+				 <%=f.text_field(:Celular, id: "Celular",class: "form-control")%>
 			 </div>
 			 <div class="col-md-3">
 				 <p style=" width: 150px;" class="stylep">Telefono</p>
-				 <%= f.text_field(:Telefono,id:"Telefono", class:"form-control")%>
+				 <%=f.text_field(:Telefono,id:"Telefono", class:"form-control")%>
 			 </div>
 			 			 
 		</div>
@@ -133,8 +133,8 @@
 	</div>
   </div>
 </div>
-
-<%= f.fields_for :estudio do |e|%>
+<!--
+<%= f.fields_for @docente_estudio do |e|%>
 	
 <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -200,7 +200,7 @@
    
   </div> 
   </div> 
-<%end%>
+<%end%> -->
 <div class=" panel panel-default">
   <br>
 	<div class="row">
